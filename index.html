@@ -3,49 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>EcoGuardians - Protecting Our Planet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
+            --primary: #1a7f5c;
+            --primary-dark: #0d6347;
+            --secondary: #34a853;
+            --accent: #8dc63f;
+            --light: #f0f9f5;
+            --dark: #0a2e1f;
+            --text: #2d3748;
             --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: var(--light);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--dark);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .nav-container {
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,13 +68,22 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
+            gap: 12px;
         }
 
-        .logo i {
-            font-size: 2rem;
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
         }
 
         nav ul {
@@ -69,20 +92,21 @@
         }
 
         nav ul li {
-            margin-left: 2rem;
+            margin-left: 30px;
         }
 
         nav ul li a {
-            color: var(--white);
             text-decoration: none;
+            color: var(--text);
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+            font-size: 1.05rem;
             position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
         }
 
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         nav ul li a::after {
@@ -92,74 +116,89 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+            background-color: var(--primary);
+            transition: var(--transition);
         }
 
         nav ul li a:hover::after {
             width: 100%;
         }
 
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
+            background: linear-gradient(rgba(10, 46, 31, 0.85), rgba(10, 46, 31, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
             color: var(--white);
+            margin-top: 70px;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--accent);
             color: var(--white);
-            padding: 0.8rem 2rem;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .btn:hover {
             background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
+        /* Section Styles */
         section {
-            padding: 5rem 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            color: var(--dark);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
@@ -173,32 +212,34 @@
             width: 80px;
             height: 4px;
             background-color: var(--accent);
-            border-radius: 2px;
         }
 
         .section-title p {
             color: var(--text);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
 
+        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 50px;
             align-items: center;
         }
 
         .about-img {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            height: 500px;
         }
 
         .about-img img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
@@ -207,51 +248,60 @@
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--dark);
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
+        /* Stats Section */
         .stats {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 30px;
         }
 
         .stat-item {
             text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
+            padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .stat-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-10px);
         }
 
         .stat-item i {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            color: var(--accent);
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--white);
         }
 
         .stat-item p {
-            color: var(--text);
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
+        /* Initiatives Section */
         .initiatives {
             background-color: var(--white);
         }
@@ -259,23 +309,23 @@
         .initiatives-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 30px;
         }
 
         .initiative-card {
-            background-color: var(--light);
+            background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
         .initiative-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
         }
 
         .initiative-img {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
 
@@ -291,37 +341,40 @@
         }
 
         .initiative-content {
-            padding: 1.5rem;
+            padding: 25px;
         }
 
         .initiative-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
             color: var(--dark);
         }
 
         .initiative-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
+        /* CTA Section */
         .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             color: var(--white);
             text-align: center;
-            padding: 5rem 0;
+            padding: 100px 0;
         }
 
         .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
         }
 
         .cta p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
+            margin-bottom: 40px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.9;
         }
 
         .cta .btn {
@@ -334,24 +387,26 @@
             color: var(--white);
         }
 
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: var(--white);
-            padding: 3rem 0 1rem;
+            padding: 70px 0 30px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
+            color: var(--white);
         }
 
         .footer-column h3::after {
@@ -365,7 +420,8 @@
         }
 
         .footer-column p {
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
         }
 
         .footer-links {
@@ -373,13 +429,13 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 12px;
         }
 
         .footer-links li a {
-            color: var(--light);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .footer-links li a:hover {
@@ -389,7 +445,8 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .social-links a {
@@ -402,7 +459,7 @@
             border-radius: 50%;
             color: var(--white);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
@@ -410,19 +467,33 @@
             transform: translateY(-5px);
         }
 
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+
+        .contact-info li i {
+            color: var(--accent);
+            width: 20px;
+        }
+
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.95rem;
         }
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .about-content {
                 grid-template-columns: 1fr;
             }
@@ -433,9 +504,10 @@
             
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
             
-            .stats {
+            .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -455,11 +527,11 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: var(--white);
                 flex-direction: column;
-                padding: 1rem 0;
+                padding: 20px 0;
                 text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             }
             
             nav ul.active {
@@ -468,7 +540,7 @@
             
             nav ul li {
                 margin: 0;
-                padding: 0.8rem 0;
+                padding: 15px 0;
             }
             
             .mobile-menu {
@@ -483,24 +555,39 @@
                 grid-template-columns: 1fr;
             }
             
-            .stats {
+            .stats-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
 
         /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container nav-container">
+        <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+                <i class="fas fa-earth-americas logo-icon"></i>
+                <div class="logo-text">Eco<span>Guardians</span></div>
             </div>
             <nav>
                 <div class="mobile-menu">
@@ -510,7 +597,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#impact">Impact</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -520,9 +607,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
+            <h1>Guard Our Planet, Secure Our Future</h1>
+            <p>Join thousands of environmental advocates in creating sustainable solutions for a healthier planet. Together, we can make a lasting impact.</p>
+            <a href="#impact" class="btn">Join the Movement</a>
         </div>
     </section>
 
@@ -530,41 +617,51 @@
     <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
+                <h2>About EcoGuardians</h2>
+                <p>We are a global network of environmental activists, scientists, and volunteers working together to protect our planet's ecosystems.</p>
             </div>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Environmental conservation team">
                 </div>
                 <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <h3>Our Vision & Mission</h3>
+                    <p>EcoGuardians was founded in 2008 with a simple yet powerful vision: to create a world where humans live in harmony with nature. We believe that environmental protection is not a choice but a necessity for our survival.</p>
+                    <p>Our mission is to implement innovative conservation strategies, educate communities about sustainable practices, and advocate for policies that protect our natural resources.</p>
+                    <p>Through our collaborative approach, we've successfully implemented over 200 conservation projects across 40 countries, directly impacting millions of lives and countless ecosystems.</p>
+                    <a href="#initiatives" class="btn">See Our Work</a>
                 </div>
             </div>
-            <div class="stats">
-                <div class="stat-item">
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Our Impact</h2>
+                <p style="color: rgba(255,255,255,0.9);">Measurable results from our conservation efforts worldwide</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item fade-in-up">
                     <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
+                    <h3 class="counter" data-target="3120000">0</h3>
                     <p>Trees Planted</p>
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
+                <div class="stat-item fade-in-up">
+                    <i class="fas fa-tint"></i>
+                    <h3 class="counter" data-target="24500">0</h3>
+                    <p>Water Bodies Protected</p>
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
+                <div class="stat-item fade-in-up">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3 class="counter" data-target="1270">0</h3>
+                    <p>Clean Energy Projects</p>
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
+                <div class="stat-item fade-in-up">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3 class="counter" data-target="65000">0</h3>
+                    <p>Volunteers Engaged</p>
                 </div>
             </div>
         </div>
@@ -574,37 +671,37 @@
     <section class="initiatives" id="initiatives">
         <div class="container">
             <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
+                <h2>Key Initiatives</h2>
+                <p>Our comprehensive programs addressing critical environmental challenges</p>
             </div>
             <div class="initiatives-grid">
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
+                        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Wildlife Conservation">
                     </div>
                     <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
+                        <h3>Wildlife Protection</h3>
+                        <p>Preserving endangered species and their habitats through conservation corridors and anti-poaching initiatives.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Plastic Pollution Cleanup">
                     </div>
                     <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
+                        <h3>Plastic Pollution Solution</h3>
+                        <p>Reducing plastic waste through cleanup campaigns, recycling programs, and sustainable alternatives.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Community Education">
                     </div>
                     <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
+                        <h3>Environmental Education</h3>
+                        <p>Empowering communities with knowledge and tools to adopt sustainable practices in daily life.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
@@ -613,11 +710,11 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="get-involved">
+    <section class="cta">
         <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+            <h2>Be Part of the Solution</h2>
+            <p>Your actions today will shape the world of tomorrow. Join our community of changemakers and contribute to a sustainable future for all.</p>
+            <a href="#contact" class="btn">Get Involved Now</a>
         </div>
     </section>
 
@@ -626,13 +723,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
+                    <h3>EcoGuardians</h3>
+                    <p>We are a global movement dedicated to protecting our planet through action, innovation, and collaboration.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -641,29 +738,32 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Our Programs</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
+                        <li><a href="#">Climate Action</a></li>
+                        <li><a href="#">Ocean Protection</a></li>
+                        <li><a href="#">Forest Restoration</a></li>
+                        <li><a href="#">Sustainable Cities</a></li>
+                        <li><a href="#">Green Technology</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Greenway Blvd, San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +1 (415) 555-2023</li>
+                        <li><i class="fas fa-envelope"></i> contact@ecoguardians.org</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM PST</li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+                <p>&copy; 2025 EcoGuardians. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for our planet</p>
             </div>
         </div>
     </footer>
@@ -672,12 +772,23 @@
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('active');
+                document.querySelector('.mobile-menu i').classList.add('fa-bars');
+                document.querySelector('.mobile-menu i').classList.remove('fa-times');
+            });
         });
 
         // Counter Animation
         function animateCounters() {
             const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
+            const speed = 200;
             
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
@@ -689,13 +800,31 @@
                     counter.innerText = Math.ceil(count + inc);
                     setTimeout(animateCounters, 1);
                 } else {
-                    counter.innerText = target;
+                    counter.innerText = target.toLocaleString();
                 }
             });
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // Initialize counters when they come into view
+        function initCountersWhenVisible() {
+            const statItems = document.querySelectorAll('.stat-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        if (!entry.target.classList.contains('animated')) {
+                            entry.target.classList.add('animated');
+                            setTimeout(animateCounters, 300);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -711,12 +840,26 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
                 }
             });
         });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.05)';
+                header.style.padding = '15px 0';
+            }
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            initCountersWhenVisible();
+        });
     </script>
 </body>
-
 </html>
